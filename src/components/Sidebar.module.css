@@ -1,0 +1,44 @@
+
+.header{
+    background-color: #fff;
+    padding: 2% 4%;
+    height: 100vh;
+    width: 117.8px;
+    box-shadow: 4px 6px 4px var(--color-gray-200);
+    -webkit-box-shadow: 4px 6px 4px var(--color-gray-200);
+    z-index: 1000;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.list li{
+    margin: 2rem 0;
+}
+
+i{
+    color: #000;
+    font-size: 24px;
+
+}
+.toggle-icon{
+    color: #000;
+    margin-bottom: 1.5rem;
+}
+
+img{
+    width: 26px;
+}
+
+@media screen and (max-width: 991px){
+
+    .header{
+      width: 60px;
+    }
+  }

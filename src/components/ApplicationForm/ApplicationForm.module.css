@@ -1,0 +1,109 @@
+.header {
+  background: var(--color-pale-green-100);
+  padding: 1.5rem 2rem .5rem 2rem;
+  color: #000;
+}
+
+.header h2{
+    font-family: 'Poppins';
+    font-size: 25px;
+}
+
+.personal-info{
+  width: 595px;
+  left: 17%;
+  margin-top: 2.5rem;
+  max-width: 60%;
+}
+
+.option {
+  margin: 0 0.5rem;
+  cursor: pointer;
+}
+
+.personal-info .content{
+  padding: 2rem;
+}
+
+input .touched.invalid {
+  border-color: red;
+  background: #ffc2c2;
+}
+
+.actions{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.questions-form, .mq-form, .videoq-form{
+  margin-top: 3rem;
+}
+
+.question{
+  font-family: 'Poppins';
+  font-weight: 600;
+  font-size: 20;
+  color: black;
+}
+
+.title{
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 14;
+  color: var(--color-gray-400);
+}
+
+.touched.invalid {
+  border-bottom-color: var(--color-error-50);
+}
+
+@media screen and (max-width: 991px) and (min-width: 768px){
+
+  .personal-info{
+    left: calc(55% - 320px);
+    max-width: 65%;
+    top: -6rem;
+  }
+}
+
+@media screen and (max-width: 767px) and (min-width: 576px){
+
+  .personal-info{
+    left: calc(68% - 300px);
+    max-width: 65%;
+    top: -6rem;
+  }
+}
+
+@media screen and (max-width: 575px)  and (min-width: 470px){
+
+  .personal-info{
+    left: calc(58% - 200px);
+    max-width: 65%;
+    top: -6rem;
+  }
+}
+
+@media screen and (max-width: 469px){
+
+  .personal-info{
+    left: calc(58% - 130px);
+    max-width: 65%;
+    top: -6rem;
+  }
+}
+
+@media screen and (max-width: 500px){
+
+  .actions{
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 576px){
+
+  .header h2{
+    font-size: 20px;
+  }
+}

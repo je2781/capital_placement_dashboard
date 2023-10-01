@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css?family=Inter:medium|Poppins:semibold,medium,regular,mixed");
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin-top: 0;
+}
+
+p{
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+a:hover {
+  color: var(--color-gray-600);
+}
+
+#wrapper {
+  overflow-x: hidden;
+  position: relative;
+}
+
+.layout{
+  min-height: 100vh;
+}
+
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Inter",
+    "Poppins", sans-serif;
+
+  color-scheme: light dark;
+  accent-color: var(--color-green-600);
+  background-color: #fff;
+  font-size: 16px;
+  line-height: 24px;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #dbdbdb;
+  --color-gray-300: #bdc3ce;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #545863;
+  --color-gray-700: #41474d;
+  --color-gray-800: #2f353b;
+  --color-gray-900: #181f24;
+
+  --color-green-50: #d2ffde;
+  --color-green-300: #19fd82;
+  --color-green-400: #22c55e;
+  --color-green-500: #00b359;
+  --color-green-600: #087b2f;
+  --color-green-900: #2a332c;
+  
+
+  --color-blue-200: #c8c1fd;
+  --color-blue-500: #35298a;
+  --color-blue-900: #282733;
+
+  --color-pale-green-100: #d0f7fa;
+  --color-pale-green-700: #00635b;
+  --color-pale-green-500: #0d9488;
+  --color-amber: #eab308;
+
+  --color-limegreen-100: #faf7c3;
+  --color-limegreen-500: #9f9704;
+  --color-limegreen-900: #333228;
+
+  --color-flavescent: #ffeb35;
+  --color-error-100: #a30000;
+  --color-error-50: #ffc2c2;
+  --color-accent: #2196F3;
+
+  --color-primary-100: #ffeaff;
+  --color-primary-200: #d6abfc;
+  --color-primary-300: #8807f7;
+  --color-primary-400: #3c0071;
+  --color-primary-500: #3d0072;
+  --color-primary-600: #240053;
+  --color-primary-700: #29014b;
+  --color-primary-800: #1b0132;
+  --color-primary-900: #10001f;
+
+  --color-primary-300-fade: rgba(135, 8, 247, 0.2);
+}
+
+.mobile-nav .btn:hover, .mobile-nav .btn:active, .mobile-nav .btn.active{
+  background-color: var(--color-primary-400);
+  color: #fff;
+}
+
+.mobile-nav .btn{
+  background-color: var(--color-primary-300);
+  padding: 1rem 2.25rem;
+  border-radius: 25px;
+}
+
+.mobile-nav{
+  position: fixed;
+  height: 70vh;
+  top: 0;
+  left: 0;
+  padding: 2rem 2rem .5rem 2rem;
+  width: 100%;
+  transform: translateY(-100%);
+  background-color: var(--color-primary-400);
+  transition: transform 0.3s ease-out;
+  z-index: 999;
+}
+
+.cancel{
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  font-size: 28px;
+  color: #fff;
+}
+
+
+.mobile-nav ul{
+  list-style: none;
+}
+
+.mobile-nav li{
+  margin: 1rem 0;
+  font-size: 15px;
+  font-family: 'CabinetGrotesk-Medium';
+}
+
+
+.mobile-nav .btn{
+  background-color: var(--color-primary-300);
+  padding: 1rem 2.25rem;
+  border-radius: 25px;
+  margin: .5rem 0;
+  color: #fff;
+}
+
+.mobile-nav.open{
+  transform: translateY(0);
+}
+
+@media screen and (min-width: 992px){
+
+  .mobile-nav{
+      display: none;
+  }
+}
+
+
