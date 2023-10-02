@@ -55,7 +55,8 @@
   .upload-image{
     width: 595px;
     max-width: 60%;
-    height: fit-content;
+    height: 408px;
+    z-index: 1000;
     left: 17%;
     margin-top: 9rem;
 }

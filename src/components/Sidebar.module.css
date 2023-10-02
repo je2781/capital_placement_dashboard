@@ -6,7 +6,7 @@
     width: 117.8px;
     box-shadow: 4px 6px 4px var(--color-gray-200);
     -webkit-box-shadow: 4px 6px 4px var(--color-gray-200);
-    z-index: 1000;
+    z-index: 100;
     position: fixed;
     left: 0;
     top: 0;

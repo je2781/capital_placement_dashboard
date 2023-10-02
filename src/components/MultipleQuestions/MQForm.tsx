@@ -4,7 +4,7 @@ import Input from "../ui/Input";
 import classes from "../ApplicationForm/ApplicationForm.module.css";
 import ChoiceField from "./ChoiceField";
 
-import { useContext} from "react";
+import { useContext } from "react";
 
 type MQFormProps = {
   validT: boolean;
@@ -14,6 +14,7 @@ type MQFormProps = {
   validMC: boolean;
   touchedMC: boolean;
   onDelete: () => void;
+  
   isEditing: boolean | undefined;
   onSave: () => void;
   validQ: boolean | undefined;
@@ -57,14 +58,14 @@ export default function MQForm({
   onBlurT,
   onChangeT,
   valueT,
-  notDropdown
+  notDropdown,
 }: MQFormProps) {
   const ctx = useContext(FormContext);
 
   const fieldCount = ctx.fieldTitles.length;
 
   function handleAddingField() {
-    if(ctx.fieldTitles.length < ctx.forms.maxNumOfChoices){
+    if (ctx.fieldTitles.length < ctx.forms.maxNumOfChoices) {
       ctx.addFieldTitle("Choice");
     }
   }
@@ -72,6 +73,8 @@ export default function MQForm({
   return (
     <form className={classes["mq-form"]}>
       <Input
+        checkboxLabel={undefined}
+        switchLabel={undefined}
         valid={validT!}
         touched={touchedT!}
         onBlur={onBlurT}
@@ -89,13 +92,15 @@ export default function MQForm({
         value={valueT}
       />
       <Input
+        checkboxLabel={undefined}
+        switchLabel={undefined}
         valid={validQ!}
         touched={touchedQ!}
         onBlur={onBlurQ}
         type="text"
         notEntries={true}
         id="question"
-        control=""
+        control="default"
         onChange={onChangeQ}
         label="Question"
         placeholder="Type here"
@@ -131,35 +136,44 @@ export default function MQForm({
             type="checkbox"
             id="enableOption"
             name="enableOption"
-            value='enableOption'
+            value="enableOption"
             className={classes.option}
           />
           <label
             htmlFor="enableOption"
-            style={{ fontFamily: "Poppins", fontSize: 15, fontWeight: 500, cursor: 'pointer' }}
+            style={{
+              fontFamily: "Poppins",
+              fontSize: 15,
+              fontWeight: 500,
+              cursor: "pointer",
+            }}
           >
             Enable "Other" option
           </label>
         </span>
       </div>
 
-      {notDropdown && <Input
-        valid={validMC!}
-        touched={touchedMC!}
-        onBlur={onBlurMC}
-        type="number"
-        notEntries={true}
-        id="maxNumOfChoices"
-        control=""
-        onChange={onChangeMC}
-        optionDefaultValue="Multiple choice"
-        label="Max choice allowed"
-        placeholder="enter number of choice allowed here"
-        extra={undefined}
-        hasOptions={false}
-        required={true}
-        value={valueMC!}
-      />}
+      {notDropdown && (
+        <Input
+          checkboxLabel={undefined}
+          switchLabel={undefined}
+          valid={validMC!}
+          touched={touchedMC!}
+          onBlur={onBlurMC}
+          type="number"
+          notEntries={true}
+          id="maxNumOfChoices"
+          control="default"
+          onChange={onChangeMC}
+          optionDefaultValue="Multiple choice"
+          label="Max choice allowed"
+          placeholder="enter number of choice allowed here"
+          extra={undefined}
+          hasOptions={false}
+          required={true}
+          value={valueMC!}
+        />
+      )}
       <div className={classes.actions}>
         <Button
           mode="flat"

@@ -39,6 +39,8 @@ export default function QuestionsForm({
   return (
     <form className={classes["questions-form"]}>
       {!isEditing && <Input
+        checkboxLabel={undefined}
+        switchLabel={undefined}
         valid={validT!}
         touched={touchedT!}
         onBlur={onBlurT}
@@ -56,13 +58,15 @@ export default function QuestionsForm({
         value={valueT}
       />}
       <Input
+        checkboxLabel={undefined}
+        switchLabel={undefined}
         valid={validQ!}
         touched={touchedQ!}
         onBlur={onBlurQ}
         type="text"
         notEntries={true}
         id="question"
-        control=""
+        control="default"
         onChange={onChangeQ}
         label="Question"
         placeholder="Type here"

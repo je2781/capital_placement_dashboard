@@ -5,13 +5,18 @@ export const INFO_FORM = {
     value: "",
     valid: false,
     touched: false,
-    validators: [required],
+    validators: [required, length({ min: 5 })]
   },
+  personalQuestions: [],
+  customisedQuestions: [],
+  profileQuestions: [],
   fName: {
     value: "",
     valid: false,
     touched: false,
     validators: [required, length({ min: 5 })],
+    hide: false,
+    internal: false,
   },
 
   lName: {
@@ -19,49 +24,91 @@ export const INFO_FORM = {
     valid: false,
     touched: false,
     validators: [required, length({ min: 5 })],
+    hide: false,
+    internal: false,
   },
   email: {
     value: "",
     valid: false,
     touched: false,
     validators: [required, email],
+    hide: false,
+    internal: false,
   },
   phone: {
     value: "",
     valid: false,
     touched: false,
     validators: [required],
+    hide: false,
+    internal: false,
   },
   nationality: {
     value: "",
     valid: false,
     touched: false,
     validators: [required],
+    hide: false,
+    internal: false,
   },
   res: {
     value: "",
     valid: false,
     touched: false,
     validators: [required],
+    hide: false,
+    internal: false,
   },
   idNum: {
     value: "",
     valid: false,
     touched: false,
     validators: [required],
+    hide: false,
+    internal: false,
   },
   dob: {
     value: "",
     valid: false,
     touched: false,
     validators: [required],
+    hide: false,
+    internal: false,
   },
   gender: {
     value: "",
     valid: false,
     touched: false,
     validators: [required],
+    hide: false,
+    internal: false,
   },
+  education: {
+    value: "",
+    valid: false,
+    touched: false,
+    validators: [required],
+    hide: false,
+    mandatory: false,
+  },
+  experience: {
+    value: "",
+    valid: false,
+    touched: false,
+    validators: [required],
+    hide: false,
+    mandatory: false,
+  },
+  resume: {
+    value: "",
+    valid: false,
+    touched: false,
+    validators: [required],
+    hide: false,
+    mandatory: false,
+  },
+  
+  //
   type: {
     value: "",
     valid: false,
@@ -104,16 +151,11 @@ export const INFO_FORM = {
     touched: false,
     validators: [required],
   },
+  //////
   enableOption: {
     checked: false
   },
   disqualify: {
-    checked: false
-  },
-  hide: {
-    checked: false
-  },
-  internal: {
     checked: false
   },
 };

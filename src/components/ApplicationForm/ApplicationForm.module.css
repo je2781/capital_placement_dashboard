@@ -9,19 +9,23 @@
     font-size: 25px;
 }
 
-.personal-info{
+.personal-info, .profile, .custom-questions{
   width: 595px;
   left: 17%;
   margin-top: 2.5rem;
   max-width: 60%;
+  z-index: 1000;
 }
+
 
 .option {
   margin: 0 0.5rem;
   cursor: pointer;
 }
 
-.personal-info .content{
+.personal-info .content,
+.profile .content,
+.custom-questions .content{
   padding: 2rem;
 }
 
@@ -60,7 +64,7 @@ input .touched.invalid {
 
 @media screen and (max-width: 991px) and (min-width: 768px){
 
-  .personal-info{
+  .personal-info, .profile, .custom-questions{
     left: calc(55% - 320px);
     max-width: 65%;
     top: -6rem;
@@ -69,7 +73,7 @@ input .touched.invalid {
 
 @media screen and (max-width: 767px) and (min-width: 576px){
 
-  .personal-info{
+  .personal-info, .profile, .custom-questions{
     left: calc(68% - 300px);
     max-width: 65%;
     top: -6rem;
@@ -78,7 +82,7 @@ input .touched.invalid {
 
 @media screen and (max-width: 575px)  and (min-width: 470px){
 
-  .personal-info{
+  .personal-info, .profile, .custom-questions{
     left: calc(58% - 200px);
     max-width: 65%;
     top: -6rem;
@@ -87,7 +91,7 @@ input .touched.invalid {
 
 @media screen and (max-width: 469px){
 
-  .personal-info{
+  .personal-info, .profile, .custom-questions{
     left: calc(58% - 130px);
     max-width: 65%;
     top: -6rem;

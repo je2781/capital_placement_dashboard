@@ -66,6 +66,8 @@ export default function VideoQForm({
   return (
     <form className={classes["videoq-form"]}>
       <Input
+        checkboxLabel={undefined}
+        switchLabel={undefined}
         valid={validT!}
         touched={touchedT!}
         onBlur={onBlurT}
@@ -83,6 +85,8 @@ export default function VideoQForm({
         value={valueT}
       />
       <Input
+        checkboxLabel={undefined}
+        switchLabel={undefined}
         valid={validQ!}
         touched={touchedQ!}
         onBlur={onBlurQ}
@@ -90,7 +94,7 @@ export default function VideoQForm({
         notEntries={true}
         id="question"
         onChange={onChangeQ}
-        control=""
+        control="default"
         label="Question"
         placeholder="Type here"
         extra={undefined}
@@ -100,6 +104,8 @@ export default function VideoQForm({
         value={valueQ}
       />
       <Input
+        checkboxLabel={undefined}
+        switchLabel={undefined}
         valid={validAI!}
         touched={touchedAI!}
         onBlur={onBlurAI}
@@ -119,17 +125,19 @@ export default function VideoQForm({
       <div className="d-flex justify-content-between align-items-center">
         <div className="me-1 flex-grow-1">
           <Input
+            checkboxLabel={undefined}
+            switchLabel={undefined}
             valid={validD!}
             touched={touchedD!}
             onBlur={onBlurD}
             type="number"
             notEntries={true}
-            control=""
+            control="default"
             id="duration"
             onChange={onChangeD}
             optionDefaultValue={undefined}
             label={undefined}
-            placeholder="Max duration of video in (sec/min)"
+            placeholder="Max duration of video"
             extra={undefined}
             hasOptions={false}
             required={true}
@@ -138,6 +146,8 @@ export default function VideoQForm({
         </div>
         <div className="ms-1 flex-grow-1">
           <Input
+            checkboxLabel={undefined}
+            switchLabel={undefined}
             valid={validDT!}
             touched={touchedDT!}
             onBlur={onBlurDT}

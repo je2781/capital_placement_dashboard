@@ -5,6 +5,7 @@ export const Strings = {
     appInfoTitle: "Additional questions",
     appPersInfoTitle: "Personal Information",
     appProfileTitle: "Profile",
-    appQuestionsTitle: "Questions"
+    appQuestionsTitle: "Questions",
+    appCustomisedQuestionsTile: "Create customised questions"
 
 }

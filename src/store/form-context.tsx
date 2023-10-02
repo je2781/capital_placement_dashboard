@@ -1,35 +1,38 @@
 import React from "react";
-import Form from "../models/Form";
-import perInfoForm from "../models/PerInfoForm";
+import PerInfoForm from "../models/PerInfoForm";
+import AdditionalQuestionForm from "../models/addQuestionForm";
 
 type ContextClass = {
   forms: {
-    generalForm: Form[];
-    perInfo: perInfoForm | undefined;
+    generalForms: AdditionalQuestionForm[];
+    perInfo: PerInfoForm | undefined;
     maxNumOfChoices: number;
   };
   fieldTitles: string[];
   removeForm: (id: string) => void;
-  addForm: (form: Form) => void;
+  addForm: (form: AdditionalQuestionForm) => void;
   addFieldTitle: (fieldTitle: string) => void;
-  editForm: (form: Form, id: string) => void;
+  editForm: (form: AdditionalQuestionForm, id: string) => void;
   resetFieldCount: () => void;
   increaseChoices: (num: string) => void;
+  updateGeneralForms: (formArray: AdditionalQuestionForm[]) => void
 };
 
 export const FormContext = React.createContext<ContextClass>({
   forms: {
-    generalForm: [],
+    generalForms: [],
     perInfo: undefined,
     maxNumOfChoices: 1,
   },
   fieldTitles: [],
   removeForm: function (id: string) {},
-  addForm: function (form: Form) {},
-  editForm: function (form: Form, id: string) {},
+  addForm: function (form: AdditionalQuestionForm) {},
+  editForm: function (form: AdditionalQuestionForm, id: string) {},
   addFieldTitle: (fieldTitle: string) => {},
   resetFieldCount: () => {},
-  increaseChoices: (num: string) => {}
+  increaseChoices: (num: string) => {},
+  updateGeneralForms: (formArray: AdditionalQuestionForm[]) => {}
+
 });
 
 export default function FormontextProvider({
@@ -38,11 +41,11 @@ export default function FormontextProvider({
   children: React.ReactNode;
 }) {
   const [formArray, setFormArray] = React.useState<{
-    generalForm: Form[];
-    perInfo: perInfoForm | undefined;
+    generalForms: AdditionalQuestionForm[];
+    perInfo: PerInfoForm | undefined;
     maxNumOfChoices: number;
   }>({
-    generalForm: [],
+    generalForms: [],
     perInfo: undefined,
     maxNumOfChoices: 1,
   });
@@ -50,11 +53,11 @@ export default function FormontextProvider({
     "Choice",
   ]);
 
-  function handleAdd(form: Form) {
+  function handleAdd(form: AdditionalQuestionForm) {
     setFormArray((prevValues: any) => {
       return {
         ...prevValues,
-        generalForm: [...prevValues.generalForm, form],
+        generalForms: [...prevValues.generalForms, form],
       };
     });
   }
@@ -62,22 +65,22 @@ export default function FormontextProvider({
     setFormArray((prevValues: any) => {
       return  {
             ...prevValues,
-            generalForm: (prevValues.generalForm as Form[]).filter(
+            generalForms: (prevValues.generalForms as AdditionalQuestionForm[]).filter(
               (item) => item.id !== id
             ),
           };
     });
   }
 
-  function handleEdit(form: Form, id: string) {
+  function handleEdit(form: AdditionalQuestionForm, id: string) {
     setFormArray((prevValues: any) => {
-      const updatedForm = [...prevValues.generalForm as Form[]];
-      const index = updatedForm.findIndex((item) => item.id === id);
-      updatedForm[index] = form;
+      const updatedForms = [...prevValues.generalForms as AdditionalQuestionForm[]];
+      const index = updatedForms.findIndex((item) => item.id === id);
+     updatedForms[index] = form;
 
       return {
         ...prevValues,
-        generalForm: updatedForm,
+        generalForms:updatedForms,
       };
     });
   }
@@ -95,6 +98,15 @@ export default function FormontextProvider({
     });
   }
 
+  function handleUpdatingForms(formArray: AdditionalQuestionForm[]){
+    setFormArray((prevValues: any) => {
+      return  {
+            ...prevValues,
+            generalForms: [...[], ...formArray]
+          };
+    });
+  }
+
   function reset() {
     setFieldTitleArray(["Choice"]);
   }
@@ -107,7 +119,8 @@ export default function FormontextProvider({
     addFieldTitle: handleAddingFieldTitle,
     fieldTitles: fieldTitleArray,
     resetFieldCount: reset,
-    increaseChoices: handleIncreasingMaxChoices
+    increaseChoices: handleIncreasingMaxChoices,
+    updateGeneralForms: handleUpdatingForms
   };
   return <FormContext.Provider value={value}>{children}</FormContext.Provider>;
 }
