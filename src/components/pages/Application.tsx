@@ -54,7 +54,7 @@ export default function Application() {
         customisedQuestionsArr,
         coverImage,
       ] = await getApplicationForm();
-      console.log(personalInfoForm);
+      console.log(profileForm);
       setFormData((prevState: any) => ({
         ...prevState,
         imagePreview: coverImage,
