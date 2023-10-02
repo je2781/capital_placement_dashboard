@@ -87,7 +87,7 @@ export default function Application() {
 
           },
           nationality: {
-            ...prevState.form.nationaity,
+            ...prevState.form.nationality,
             hide: personalInfoForm.form.nationality.hideCheck,
             internal: personalInfoForm.form.nationality.internalCheck,
             value: ''
