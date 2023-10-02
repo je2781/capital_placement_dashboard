@@ -148,12 +148,8 @@ export default function Application() {
         },
       }));
 
-      const updatedAdditionalQuestionArray = [
-        ...personalInfoForm.form.persQuestions,
-        ...profileForm.form.proQuestions,
-      ];
-
-      formCtx.updateGeneralForms(updatedAdditionalQuestionArray);
+      formCtx.updatePerInfoQuestionForms(personalInfoForm.form.persQuestions);
+      formCtx.updateProfileQuestionForms(profileForm.form.proQuestions);
     }
 
     getAppData();
@@ -208,7 +204,8 @@ export default function Application() {
                 perQuestion: formData.form.question.value,
                 perMaxNumOfChoices: formCtx.forms.maxNumOfChoices.toString(),
                 
-              }, input.formId!)
+              }, input.formId!),
+              "perInfoQuestionForms"
               
             );
           } else {
@@ -219,7 +216,8 @@ export default function Application() {
                 proChoice: formData.form.choice.value,
                 proQuestion: formData.form.question.value,
                 proMaxNumOfChoices: formCtx.forms.maxNumOfChoices.toString(),
-              }, input.formId!)
+              }, input.formId!),
+              "profileQuestionForms"
             );
           }
         }
@@ -280,7 +278,8 @@ export default function Application() {
                 perType: formData.form.type.value,
                 perChoice: formData.form.choice.value,
                 perQuestion: formData.form.question.value,
-              }, input.formId!)
+              }, input.formId!),
+              "perInfoQuestionForms"
             );
           } else {
             formCtx.editForm(
@@ -289,7 +288,8 @@ export default function Application() {
                 proType: formData.form.type.value,
                 proChoice: formData.form.choice.value,
                 proQuestion: formData.form.question.value,
-              }, input.formId!)
+              }, input.formId!),
+              "profileQuestionForms"
             );
           }
         }
@@ -343,7 +343,8 @@ export default function Application() {
               new AdditionalQuestionForm({
                 perType: formData.form.type.value,
                 perQuestion: formData.form.question.value,
-              }, input.formId!)
+              }, input.formId!),
+              "perInfoQuestionForms"
             );
           } else {
             formCtx.editForm(
@@ -351,7 +352,8 @@ export default function Application() {
                 perType: undefined,
                 proType: formData.form.type.value,
                 proQuestion: formData.form.question.value,
-              }, input.formId!)
+              }, input.formId!),
+              "profileQuestionForms"
             );
           }
         }
@@ -411,7 +413,8 @@ export default function Application() {
                 perDuration: formData.form.duration.value,
                 perTime: formData.form.time.value,
                 perAddInfo: formData.form.addInfo.value,
-              }, input.formId!)
+              }, input.formId!),
+              "perInfoQuestionForms"
             );
           } else {
             formCtx.editForm(
@@ -422,7 +425,8 @@ export default function Application() {
                 proDuration: formData.form.duration.value,
                 proTime: formData.form.time.value,
                 proAddInfo: formData.form.addInfo.value,
-              }, input.formId!)
+              }, input.formId!),
+              "profileQuestionForms"
             );
           }
         }
@@ -488,7 +492,8 @@ export default function Application() {
               new AdditionalQuestionForm({
                 perType: formData.form.type.value,
                 perQuestion: formData.form.question.value,
-              }, input.formId!)
+              }, input.formId!),
+              "perInfoQuestionForms"
             );
           } else {
             formCtx.editForm(
@@ -496,7 +501,8 @@ export default function Application() {
                 perType: undefined,
                 proType: formData.form.type.value,
                 proQuestion: formData.form.question.value,
-              }, input.formId!)
+              }, input.formId!),
+              "profileQuestionForms"
             );
           }
         }
@@ -918,7 +924,7 @@ export default function Application() {
           required={true}
           value={formData.form["gender"].value}
         />
-        {formCtx.forms.generalForms.map((item, index) => {
+        {formCtx.forms.perInfoQuestionForms.map((item, index) => {
           return !openPerInfoSavedQuestionsForm && item.form.perType ? (
             <SavedQuestion
               key={index}
@@ -1380,7 +1386,7 @@ export default function Application() {
           required={true}
           value={formData.form["resume"].value}
         />
-        {formCtx.forms.generalForms.map((item, index) => {
+        {formCtx.forms.profileQuestionForms.map((item, index) => {
           return !openProfileSavedQuestionsForm && item.form.proType ? (
             <SavedQuestion
               key={index}

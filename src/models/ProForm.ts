@@ -5,14 +5,14 @@ class ProForm {
     education: { hideCheck: boolean; mandatoryCheck: boolean; value?: string;  };
     exp: { hideCheck: boolean; mandatoryCheck: boolean; value?: string; };
     resume: { hideCheck: boolean; mandatoryCheck: boolean; value?: string;  };
-    proQuestions: AdditionalQuestionForm []
+    proQuestions: AdditionalQuestionForm[]
   };
 
   constructor(form: {
     education: { hideCheck: boolean; mandatoryCheck: boolean; value?: string;  };
     exp: { hideCheck: boolean; mandatoryCheck: boolean; value?: string; };
     resume: { hideCheck: boolean; mandatoryCheck: boolean; value?: string;  };
-    proQuestions: AdditionalQuestionForm []
+    proQuestions: AdditionalQuestionForm[]
   }) {
     this.form = form;
   }

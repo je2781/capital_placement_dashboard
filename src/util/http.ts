@@ -63,7 +63,7 @@ export async function getApplicationForm() : Promise<[PerInfoForm, ProForm,  Add
         perQuestion: item.question,
         perMaxNumOfChoices: item.maxChoice.toString(),
         perDisqualify: item.disqualify,
-        perOther: item.other.toString()
+        perOther: item.other
         
     }, item.id))
   }),
@@ -78,7 +78,7 @@ export async function getApplicationForm() : Promise<[PerInfoForm, ProForm,  Add
         proQuestion: item.question,
         proMaxNumOfChoices: item.maxChoice.toString(),
         proDisqualify: item.disqualify,
-        proOther: item.other.toString()
+        proOther: item.other
         
     }, item.id))
   }),
@@ -88,7 +88,7 @@ export async function getApplicationForm() : Promise<[PerInfoForm, ProForm,  Add
     custChoice: (item.choices as string[]).map((choice: string) => choice),
     custType: item.type,
     custDisqualify: item.disqualify,
-    custMaxNumOfChoices: item.maxChoice,
+    custMaxNumOfChoices: item.maxChoice.toString(),
     custOther: item.other
 }, item.id)),
 coverImage

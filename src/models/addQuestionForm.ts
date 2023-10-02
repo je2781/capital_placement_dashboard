@@ -7,7 +7,7 @@ class AdditionalQuestionForm {
     perTime?: string;
     perAddInfo?: string;
     perEnableOption?: string;
-    perDisqualify?: string;
+    perDisqualify?: boolean;
     perMaxNumOfChoices?: string;
     proType?: string;
     proQuestion?: string;
@@ -16,7 +16,7 @@ class AdditionalQuestionForm {
     proTime?: string;
     proAddInfo?: string;
     proEnableOption?: string;
-    proDisqualify?: string;
+    proDisqualify?: boolean;
     proMaxNumOfChoices?: string;
     custType?: string;
     custQuestion?: string;
@@ -25,11 +25,11 @@ class AdditionalQuestionForm {
     custTime?: string;
     custAddInfo?: string;
     custEnableOption?: string;
-    custDisqualify?: string;
+    custDisqualify?: boolean;
     custMaxNumOfChoices?: string;
-    custOther?: any;
-    proOther?: any;
-    perOther?: any;
+    custOther?: boolean;
+    proOther?: boolean;
+    perOther?: boolean;
   };
   id: string;
 
@@ -41,7 +41,7 @@ class AdditionalQuestionForm {
     perTime?: string;
     perAddInfo?: string;
     perEnableOption?: string;
-    perDisqualify?: string;
+    perDisqualify?: boolean;
     perMaxNumOfChoices?: string;
     proType?: string;
     proQuestion?: string;
@@ -50,7 +50,7 @@ class AdditionalQuestionForm {
     proTime?: string;
     proAddInfo?: string;
     proEnableOption?: string;
-    proDisqualify?: string;
+    proDisqualify?: boolean;
     proMaxNumOfChoices?: string;
     custType?: string;
     custQuestion?: string;
@@ -59,11 +59,11 @@ class AdditionalQuestionForm {
     custTime?: string;
     custAddInfo?: string;
     custEnableOption?: string;
-    custDisqualify?: string;
+    custDisqualify?: boolean;
     custMaxNumOfChoices?: string;
-    custOther?: any;
-    proOther?: any;
-    perOther?: any;
+    custOther?: boolean;
+    proOther?: boolean;
+    perOther?: boolean;
 }, id?: string) {
     this.id = id ? id : new Date().toISOString() + Math.random().toString();
     this.form = form;

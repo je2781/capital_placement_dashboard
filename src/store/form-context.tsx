@@ -4,7 +4,8 @@ import AdditionalQuestionForm from "../models/addQuestionForm";
 
 type ContextClass = {
   forms: {
-    generalForms: AdditionalQuestionForm[];
+    profileQuestionForms: AdditionalQuestionForm[];
+    perInfoQuestionForms: AdditionalQuestionForm[];
     perInfo: PerInfoForm | undefined;
     maxNumOfChoices: number;
   };
@@ -12,26 +13,29 @@ type ContextClass = {
   removeForm: (id: string) => void;
   addForm: (form: AdditionalQuestionForm) => void;
   addFieldTitle: (fieldTitle: string) => void;
-  editForm: (form: AdditionalQuestionForm) => void;
+  editForm: (form: AdditionalQuestionForm,  formName: string) => void;
   resetFieldCount: () => void;
   increaseChoices: (num: string) => void;
-  updateGeneralForms: (formArray: AdditionalQuestionForm[]) => void
+  updateProfileQuestionForms: (formArray: AdditionalQuestionForm[]) => void
+  updatePerInfoQuestionForms: (formArray: AdditionalQuestionForm[]) => void
 };
 
 export const FormContext = React.createContext<ContextClass>({
   forms: {
-    generalForms: [],
+    profileQuestionForms: [],
+    perInfoQuestionForms: [],
     perInfo: undefined,
     maxNumOfChoices: 1,
   },
   fieldTitles: [],
   removeForm: function (id: string) {},
   addForm: function (form: AdditionalQuestionForm) {},
-  editForm: function (form: AdditionalQuestionForm) {},
+  editForm: function (form: AdditionalQuestionForm, formName: string) {},
   addFieldTitle: (fieldTitle: string) => {},
   resetFieldCount: () => {},
   increaseChoices: (num: string) => {},
-  updateGeneralForms: (formArray: AdditionalQuestionForm[]) => {}
+  updateProfileQuestionForms: (formArray: AdditionalQuestionForm[]) => {},
+  updatePerInfoQuestionForms: (formArray: AdditionalQuestionForm[]) => {}
 
 });
 
@@ -41,11 +45,13 @@ export default function FormontextProvider({
   children: React.ReactNode;
 }) {
   const [formArray, setFormArray] = React.useState<{
-    generalForms: AdditionalQuestionForm[];
+    profileQuestionForms: AdditionalQuestionForm[];
+    perInfoQuestionForms: AdditionalQuestionForm[];
     perInfo: PerInfoForm | undefined;
     maxNumOfChoices: number;
   }>({
-    generalForms: [],
+    profileQuestionForms: [],
+    perInfoQuestionForms: [],
     perInfo: undefined,
     maxNumOfChoices: 1,
   });
@@ -72,7 +78,7 @@ export default function FormontextProvider({
     });
   }
 
-  function handleEdit(form: AdditionalQuestionForm) {
+  function handleEdit(form: AdditionalQuestionForm, formName: string) {
     setFormArray((prevValues: any) => {
       const updatedForms = [...prevValues.generalForms];
       const index = updatedForms.findIndex((item) => item.id === form.id);
@@ -80,7 +86,7 @@ export default function FormontextProvider({
 
       return {
         ...prevValues,
-        generalForms: updatedForms,
+        [formName]: updatedForms,
       };
     });
   }
@@ -98,11 +104,20 @@ export default function FormontextProvider({
     });
   }
 
-  function handleUpdatingForms(formArray: AdditionalQuestionForm[]){
+  function handleUpdatingProfileQuestionForms(formArray: AdditionalQuestionForm[]){
     setFormArray((prevValues: any) => {
       return  {
             ...prevValues,
-            generalForms: [...[], ...formArray]
+            profileQuestionForms: formArray
+          };
+    });
+  }
+
+  function handleUpdatingPerInfoQuestionForms(formArray: AdditionalQuestionForm[]){
+    setFormArray((prevValues: any) => {
+      return  {
+            ...prevValues,
+            perInfoQuestionForms: formArray
           };
     });
   }
@@ -120,7 +135,8 @@ export default function FormontextProvider({
     fieldTitles: fieldTitleArray,
     resetFieldCount: reset,
     increaseChoices: handleIncreasingMaxChoices,
-    updateGeneralForms: handleUpdatingForms
+    updatePerInfoQuestionForms: handleUpdatingPerInfoQuestionForms,
+    updateProfileQuestionForms: handleUpdatingProfileQuestionForms
   };
   return <FormContext.Provider value={value}>{children}</FormContext.Provider>;
 }
