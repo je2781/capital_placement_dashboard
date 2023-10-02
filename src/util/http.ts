@@ -4,7 +4,7 @@ import ProForm from "../models/ProForm";
 import AdditionalQuestionForm from "../models/addQuestionForm";
 
 let BASE_URL =
-  "http://127.0.0.1:4010/api/360.9631576630662/programs/fugit/application-form";
+  "http://127.0.0.1:4010/api/907.0940325025746/programs/quis/application-form";
 
 export async function getApplicationForm() : Promise<[PerInfoForm, ProForm,  AdditionalQuestionForm[], string]>{
     const config = {
@@ -96,7 +96,7 @@ coverImage
 }
 
 export async function postApplicationForm(multiformData: FormData){
-    BASE_URL = "http://127.0.0.1:4010/api/977.87452220944/programs/eius/application-form";
+    BASE_URL = "http://127.0.0.1:4010/api/101.17561234111884/programs/dolores/application-form";
     
     const response = await axios.put(BASE_URL, multiformData, {
         headers:{
