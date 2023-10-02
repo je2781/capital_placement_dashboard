@@ -12,7 +12,7 @@ type ContextClass = {
   removeForm: (id: string) => void;
   addForm: (form: AdditionalQuestionForm) => void;
   addFieldTitle: (fieldTitle: string) => void;
-  editForm: (form: AdditionalQuestionForm, id: string) => void;
+  editForm: (form: AdditionalQuestionForm) => void;
   resetFieldCount: () => void;
   increaseChoices: (num: string) => void;
   updateGeneralForms: (formArray: AdditionalQuestionForm[]) => void
@@ -27,7 +27,7 @@ export const FormContext = React.createContext<ContextClass>({
   fieldTitles: [],
   removeForm: function (id: string) {},
   addForm: function (form: AdditionalQuestionForm) {},
-  editForm: function (form: AdditionalQuestionForm, id: string) {},
+  editForm: function (form: AdditionalQuestionForm) {},
   addFieldTitle: (fieldTitle: string) => {},
   resetFieldCount: () => {},
   increaseChoices: (num: string) => {},
@@ -72,15 +72,15 @@ export default function FormontextProvider({
     });
   }
 
-  function handleEdit(form: AdditionalQuestionForm, id: string) {
+  function handleEdit(form: AdditionalQuestionForm) {
     setFormArray((prevValues: any) => {
-      const updatedForms = [...prevValues.generalForms as AdditionalQuestionForm[]];
-      const index = updatedForms.findIndex((item) => item.id === id);
+      const updatedForms = [...prevValues.generalForms];
+      const index = updatedForms.findIndex((item) => item.id === form.id);
      updatedForms[index] = form;
 
       return {
         ...prevValues,
-        generalForms:updatedForms,
+        generalForms: updatedForms,
       };
     });
   }

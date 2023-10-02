@@ -207,8 +207,9 @@ export default function Application() {
                 perChoice: formData.form.choice.value,
                 perQuestion: formData.form.question.value,
                 perMaxNumOfChoices: formCtx.forms.maxNumOfChoices.toString(),
-              }),
-              input.formId!
+                
+              }, input.formId!)
+              
             );
           } else {
             formCtx.editForm(
@@ -218,8 +219,7 @@ export default function Application() {
                 proChoice: formData.form.choice.value,
                 proQuestion: formData.form.question.value,
                 proMaxNumOfChoices: formCtx.forms.maxNumOfChoices.toString(),
-              }),
-              input.formId!
+              }, input.formId!)
             );
           }
         }
@@ -280,8 +280,7 @@ export default function Application() {
                 perType: formData.form.type.value,
                 perChoice: formData.form.choice.value,
                 perQuestion: formData.form.question.value,
-              }),
-              input.formId!
+              }, input.formId!)
             );
           } else {
             formCtx.editForm(
@@ -290,8 +289,7 @@ export default function Application() {
                 proType: formData.form.type.value,
                 proChoice: formData.form.choice.value,
                 proQuestion: formData.form.question.value,
-              }),
-              input.formId!
+              }, input.formId!)
             );
           }
         }
@@ -345,8 +343,7 @@ export default function Application() {
               new AdditionalQuestionForm({
                 perType: formData.form.type.value,
                 perQuestion: formData.form.question.value,
-              }),
-              input.formId!
+              }, input.formId!)
             );
           } else {
             formCtx.editForm(
@@ -354,8 +351,7 @@ export default function Application() {
                 perType: undefined,
                 proType: formData.form.type.value,
                 proQuestion: formData.form.question.value,
-              }),
-              input.formId!
+              }, input.formId!)
             );
           }
         }
@@ -415,8 +411,7 @@ export default function Application() {
                 perDuration: formData.form.duration.value,
                 perTime: formData.form.time.value,
                 perAddInfo: formData.form.addInfo.value,
-              }),
-              input.formId!
+              }, input.formId!)
             );
           } else {
             formCtx.editForm(
@@ -427,8 +422,7 @@ export default function Application() {
                 proDuration: formData.form.duration.value,
                 proTime: formData.form.time.value,
                 proAddInfo: formData.form.addInfo.value,
-              }),
-              input.formId!
+              }, input.formId!)
             );
           }
         }
@@ -494,8 +488,7 @@ export default function Application() {
               new AdditionalQuestionForm({
                 perType: formData.form.type.value,
                 perQuestion: formData.form.question.value,
-              }),
-              input.formId!
+              }, input.formId!)
             );
           } else {
             formCtx.editForm(
@@ -503,8 +496,7 @@ export default function Application() {
                 perType: undefined,
                 proType: formData.form.type.value,
                 proQuestion: formData.form.question.value,
-              }),
-              input.formId!
+              }, input.formId!)
             );
           }
         }

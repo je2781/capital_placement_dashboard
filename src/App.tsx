@@ -14,12 +14,9 @@ function App() {
       path: "/",
       element: <RootLayout />,
       children: [
+
         {
           index: true,
-          element: <Home />,
-        },
-        {
-          path: "details",
           element: <ProgramDetails />,
         },
         {

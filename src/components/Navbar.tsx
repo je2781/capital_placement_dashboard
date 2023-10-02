@@ -43,7 +43,7 @@ export default function Navbar({
       >
         <ul className={`${classes["main-list"]} navbar-nav`}>
           <NavLink
-            to="/details"
+            to="/"
             onClick={showDividerHandler}
             className={({ isActive }) =>
               isActive ? classes.active : undefined

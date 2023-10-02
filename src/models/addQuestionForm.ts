@@ -65,7 +65,7 @@ class AdditionalQuestionForm {
     proOther?: any;
     perOther?: any;
 }, id?: string) {
-    this.id = id ? id : new Date().toISOString() + Math.random().toString()!;
+    this.id = id ? id : new Date().toISOString() + Math.random().toString();
     this.form = form;
   }
 }
