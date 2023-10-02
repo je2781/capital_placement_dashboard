@@ -10,7 +10,7 @@ type ContextClass = {
     maxNumOfChoices: number;
   };
   fieldTitles: string[];
-  removeForm: (id: string) => void;
+  removeForm: (id: string, formName: string) => void;
   addForm: (form: AdditionalQuestionForm) => void;
   addFieldTitle: (fieldTitle: string) => void;
   editForm: (form: AdditionalQuestionForm,  formName: string) => void;
@@ -28,7 +28,7 @@ export const FormContext = React.createContext<ContextClass>({
     maxNumOfChoices: 1,
   },
   fieldTitles: [],
-  removeForm: function (id: string) {},
+  removeForm: function (id: string, formName: string) {},
   addForm: function (form: AdditionalQuestionForm) {},
   editForm: function (form: AdditionalQuestionForm, formName: string) {},
   addFieldTitle: (fieldTitle: string) => {},
@@ -67,11 +67,11 @@ export default function FormontextProvider({
       };
     });
   }
-  function handleDelete(id: string) {
+  function handleDelete(id: string, formName: string) {
     setFormArray((prevValues: any) => {
       return  {
             ...prevValues,
-            generalForms: (prevValues.generalForms as AdditionalQuestionForm[]).filter(
+            [formName]: (prevValues[formName] as AdditionalQuestionForm[]).filter(
               (item) => item.id !== id
             ),
           };
@@ -80,7 +80,7 @@ export default function FormontextProvider({
 
   function handleEdit(form: AdditionalQuestionForm, formName: string) {
     setFormArray((prevValues: any) => {
-      const updatedForms = [...prevValues.generalForms];
+      const updatedForms = [...prevValues[formName]];
       const index = updatedForms.findIndex((item) => item.id === form.id);
      updatedForms[index] = form;
 

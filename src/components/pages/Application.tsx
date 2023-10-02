@@ -949,7 +949,7 @@ export default function Application() {
               valueQ={item.form.perQuestion!}
               valueT={item.form.perType}
               onDelete={() => {
-                formCtx.removeForm(item.id);
+                formCtx.removeForm(item.id, "perInfoQuestionForms");
                 handleAction({
                   input: "yes/no",
                   form: "perInfo",
@@ -992,7 +992,7 @@ export default function Application() {
               valueC={item.form.perChoice! as string}
               valueMC={item.form.perMaxNumOfChoices!}
               onDelete={() => {
-                formCtx.removeForm(item.id);
+                formCtx.removeForm(item.id, "perInfoQuestionForms");
                 handleAction({
                   input: "choice",
                   form: "perInfo",
@@ -1035,7 +1035,7 @@ export default function Application() {
               valueC={item.form.perChoice! as string}
               valueMC={item.form.perMaxNumOfChoices!}
               onDelete={() => {
-                formCtx.removeForm(item.id);
+                formCtx.removeForm(item.id, "perInfoQuestionForms");
                 handleAction({
                   input: "dropdown",
                   form: "perInfo",
@@ -1082,7 +1082,7 @@ export default function Application() {
               valueAI={item.form.perAddInfo!}
               valueDT={item.form.perTime!}
               onDelete={() => {
-                formCtx.removeForm(item.id);
+                formCtx.removeForm(item.id, "perInfoQuestionForms");
                 handleAction({
                   input: "video",
                   form: "perInfo",
@@ -1115,7 +1115,7 @@ export default function Application() {
                 valueQ={item.form.perQuestion!}
                 valueT={item.form.perType!}
                 onDelete={() => {
-                  formCtx.removeForm(item.id);
+                  formCtx.removeForm(item.id, "perInfoQuestionForms");
                   handleAction({
                     input: "",
                     form: "perInfo",
@@ -1411,7 +1411,7 @@ export default function Application() {
               valueQ={item.form.proQuestion!}
               valueT={item.form.proType}
               onDelete={() => {
-                formCtx.removeForm(item.id);
+                formCtx.removeForm(item.id, "profileQuestionForms");
                 handleAction({
                   input: "yes/no",
                   form: "profile",
@@ -1454,7 +1454,7 @@ export default function Application() {
               valueC={item.form.proChoice! as string}
               valueMC={item.form.proMaxNumOfChoices!}
               onDelete={() => {
-                formCtx.removeForm(item.id);
+                formCtx.removeForm(item.id, "profileQuestionForms");
                 handleAction({
                   input: "choice",
                   form: "profile",
@@ -1497,7 +1497,7 @@ export default function Application() {
               valueC={item.form.proChoice! as string}
               valueMC={item.form.proMaxNumOfChoices!}
               onDelete={() => {
-                formCtx.removeForm(item.id);
+                formCtx.removeForm(item.id, "profileQuestionForms");
                 handleAction({
                   input: "dropdown",
                   form: "profile",
@@ -1544,7 +1544,7 @@ export default function Application() {
               valueAI={item.form.proAddInfo!}
               valueDT={item.form.proTime!}
               onDelete={() => {
-                formCtx.removeForm(item.id);
+                formCtx.removeForm(item.id, "profileQuestionForms");
                 handleAction({
                   input: "video",
                   form: "profile",
@@ -1577,7 +1577,7 @@ export default function Application() {
                 valueQ={item.form.proQuestion!}
                 valueT={item.form.proType!}
                 onDelete={() => {
-                  formCtx.removeForm(item.id);
+                  formCtx.removeForm(item.id,"profileQuestionForms");
                   handleAction({
                     input: "",
                     form: "profile",
