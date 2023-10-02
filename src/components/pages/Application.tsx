@@ -61,52 +61,86 @@ export default function Application() {
         form: {
           ...prevState.form,
           fName: {
+            ...prevState.form.fName,
             hide: personalInfoForm.form.fName.hideCheck,
             internal: personalInfoForm.form.fName.internalCheck,
+            value: '',
           },
           lName: {
+            ...prevState.form.lName,
             hide: personalInfoForm.form.lName.hideCheck,
             internal: personalInfoForm.form.lName.internalCheck,
+            value: ''
           },
           email: {
+            ...prevState.form.email,
             hide: personalInfoForm.form.email.hideCheck,
             internal: personalInfoForm.form.email.internalCheck,
+            value: ''
+
           },
           phone: {
+            ...prevState.form.phone,
             hide: personalInfoForm.form.phone.hideCheck,
             internal: personalInfoForm.form.phone.internalCheck,
+            value: ''
+
           },
           nationality: {
+            ...prevState.form.nationaity,
             hide: personalInfoForm.form.nationality.hideCheck,
             internal: personalInfoForm.form.nationality.internalCheck,
+            value: ''
+
           },
           res: {
+            ...prevState.form.res,
             hide: personalInfoForm.form.res.hideCheck,
             internal: personalInfoForm.form.res.internalCheck,
+            value: ''
+
           },
           idNum: {
+            ...prevState.form.idNum,
             hide: personalInfoForm.form.idNum.hideCheck,
             internal: personalInfoForm.form.idNum.internalCheck,
+            value: ''
+
           },
           dob: {
+            ...prevState.form.dob,
             hide: personalInfoForm.form.dob.hideCheck,
             internal: personalInfoForm.form.dob.internalCheck,
+            value: ''
+
           },
           gender: {
+            ...prevState.form.gender,
             hide: personalInfoForm.form.gender.hideCheck,
             internal: personalInfoForm.form.gender.internalCheck,
+            value: ''
+
           },
           education: {
+            ...prevState.form.education,
             hide: profileForm.form.education.hideCheck,
             mandatory: profileForm.form.education.mandatoryCheck,
+            value: ''
+
           },
-          exp: {
+          experience: {
+            ...prevState.form.experience,
             hide: profileForm.form.exp.hideCheck,
             mandatory: profileForm.form.exp.mandatoryCheck,
+            value: ''
+
           },
           resume: {
+            ...prevState.form.resume,
             hide: profileForm.form.resume.hideCheck,
             mandatory: profileForm.form.resume.mandatoryCheck,
+            value: ''
+
           },
           personalQuestions: personalInfoForm.form.persQuestions,
           profileQuestions: profileForm.form.proQuestions,
@@ -636,6 +670,7 @@ export default function Application() {
     }
     setFormData((prevState: any) => {
       let isValid = true;
+      console.log(prevState.form[input]);
       for (const validator of prevState.form[input].validators) {
         isValid = isValid && validator(value);
       }
@@ -708,8 +743,8 @@ export default function Application() {
           valid={formData.form["fName"].valid}
           touched={formData.form["fName"].touched}
           onBlur={inputBlurHandler.bind(null, "fName")}
-          internalChecked={formData.form.fName.internal}
-          hideChecked={formData.form.fName.hide}
+          internalChecked={formData.form["fName"].internal}
+          hideChecked={formData.form["fName"].hide}
           type="text"
           extra={undefined}
           optionDefaultValue={undefined}
@@ -731,8 +766,8 @@ export default function Application() {
           onBlur={inputBlurHandler.bind(null, "lName")}
           type="text"
           id="lName"
-          internalChecked={formData.form.lName.internal}
-          hideChecked={formData.form.lName.hide}
+          internalChecked={formData.form["lName"].internal}
+          hideChecked={formData.form["lName"].hide}
           control="default"
           onChange={inputChangeHandler}
           optionDefaultValue={undefined}
@@ -751,8 +786,8 @@ export default function Application() {
           touched={formData.form["email"].touched}
           onBlur={inputBlurHandler.bind(null, "email")}
           type="text"
-          internalChecked={formData.form.email.internal}
-          hideChecked={formData.form.email.hide}
+          internalChecked={formData.form["email"].internal}
+          hideChecked={formData.form["email"].hide}
           id="email"
           extra={undefined}
           onChange={inputChangeHandler}
@@ -771,8 +806,8 @@ export default function Application() {
           valid={formData.form["phone"].valid}
           touched={formData.form["phone"].touched}
           onBlur={inputBlurHandler.bind(null, "phone")}
-          internalChecked={formData.form.phone.internal}
-          hideChecked={formData.form.phone.hide}
+          internalChecked={formData.form["phone"].internal}
+          hideChecked={formData.form["phone"].hide}
           type="text"
           id="phone"
           onChange={inputChangeHandler}
@@ -794,8 +829,8 @@ export default function Application() {
           onBlur={inputBlurHandler.bind(null, "nationality")}
           type="text"
           id="nationality"
-          internalChecked={formData.form.nationality.internal}
-          hideChecked={formData.form.nationality.hide}
+          internalChecked={formData.form["nationality"].internal}
+          hideChecked={formData.form["nationality"].hide}
           onChange={inputChangeHandler}
           notEntries={false}
           control="default"
@@ -816,8 +851,8 @@ export default function Application() {
           type="text"
           id="res"
           onChange={inputChangeHandler}
-          internalChecked={formData.form.res.internal}
-          hideChecked={formData.form.res.hide}
+          internalChecked={formData.form["res"].internal}
+          hideChecked={formData.form["res"].hide}
           notEntries={false}
           label="Current Residence"
           control="default"
@@ -837,8 +872,8 @@ export default function Application() {
           type="text"
           id="idNum"
           onChange={inputChangeHandler}
-          internalChecked={formData.form.idNum.internal}
-          hideChecked={formData.form.idNum.hide}
+          internalChecked={formData.form["idNum"].internal}
+          hideChecked={formData.form["idNum"].hide}
           notEntries={false}
           control="default"
           extra={undefined}
@@ -859,8 +894,8 @@ export default function Application() {
           type="text"
           id="dob"
           optionDefaultValue={undefined}
-          internalChecked={formData.form.dob.internal}
-          hideChecked={formData.form.dob.hide}
+          internalChecked={formData.form["dob"].internal}
+          hideChecked={formData.form["dob"].hide}
           onChange={inputChangeHandler}
           label="Date of Birth"
           control="default"
@@ -876,8 +911,8 @@ export default function Application() {
           valid={formData.form["gender"].valid}
           touched={formData.form["gender"].touched}
           onBlur={inputBlurHandler.bind(null, "gender")}
-          internalChecked={formData.form.gender.internal}
-          hideChecked={formData.form.gender.hide}
+          internalChecked={formData.form["gender"].internal}
+          hideChecked={formData.form["gender"].hide}
           notEntries={false}
           type="text"
           id="gender"

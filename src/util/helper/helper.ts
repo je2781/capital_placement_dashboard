@@ -5,7 +5,7 @@ export const INFO_FORM = {
     value: "",
     valid: false,
     touched: false,
-    validators: [required, length({ min: 5 })]
+    validators: [required]
   },
   personalQuestions: [],
   customisedQuestions: [],
@@ -153,9 +153,13 @@ export const INFO_FORM = {
   },
   //////
   enableOption: {
-    checked: false
+    checked: false,
+    validators: [required],
+
   },
   disqualify: {
-    checked: false
+    checked: false,
+    validators: [required],
+
   },
 };

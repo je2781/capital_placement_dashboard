@@ -1,4 +1,4 @@
-export const required = (value: string) => value.toString().trim() !== '';
+export const required = (value: string) => value.trim() !== '';
 
 export const length = (config: {min: number; max?: number}) => (value: string) => {
   let isValid = true;
